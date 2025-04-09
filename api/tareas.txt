@@ -1,0 +1,7 @@
+- revisar el manejo de sequelize - cli par aun uso mas profecionale
+- revisar todos los comentarios 
+- aprender concepto como alter true que es? o cosas asi
+- hacer archivo de peticiones para usar postman
+
+
+https://data.sfgov.org/Economy-and-Community/Mobile-Food-Facility-Permit/rqzj-sfat/about_data

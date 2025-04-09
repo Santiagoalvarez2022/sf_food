@@ -1,0 +1,38 @@
+# --- Global ---
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Environment files
+.env
+.env.*
+
+
+# --- Backend (api/) ---
+
+api/node_modules/
+api/logs/
+api/*.log
+api/pids/
+api/*.pid
+api/*.pid.lock
+api/coverage/
+api/.env
+api/.env.*
+
+
+# --- Frontend (client/) ---
+
+client/node_modules/
+client/dist/
+client/.vite/
+client/.env
+client/.env.*
+
+# Vite cache
+client/.vite/
