@@ -1,12 +1,18 @@
 import React from 'react'
 
-export default function LocationFavorite() {
+export default function LocationFavorite(
+  {
+  address,
+  facilitytype
+  }) {
+  
   return (
-    <div className='bg-[#E9E9E9] p-3 rounded-l-[2em] rounded-r-[1.5em] shadow-[#8F8F8F] shadow-lg flex justify-between items-center pr-4 w-[90%]'>
+    <div className={`bg-[#E9E9E9] p-3 rounded-l-[2em] rounded-r-[1.5em] shadow-[#8F8F8F]/50 shadow-lg flex justify-between items-center pr-4 w-full `}>
+
         <div className='bg-[#8F8F8F]  h-10 w-10 rounded-full'></div>
         <div>
-            <h3 className='text-center font-bold text-xl leading-tight'>HalalCartSF LLC</h3>
-            <p className='leading-tight'>400 montgomery St</p>
+            <h3 className='text-center font-bold text-xl leading-tight'>{address}</h3>
+            <p className='leading-tight w-full text-center'>{facilitytype}</p>
         </div>
         <div >
             <svg xmlns="http://www.w3.org/2000/svg" fill="#fc5e5e" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-8">

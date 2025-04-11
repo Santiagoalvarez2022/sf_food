@@ -17,6 +17,7 @@
   --color-sf-brown:oklch(0.37 0.1103 31.59);
   --color-sf-red:oklch(0.56 0.2268 29.15);
   --color-sf-bg:oklch(0.99 0 0);
+  --color-sf-grey:oklch(0.97 0 0);
   --font-sf-logo : "Jomhuria", serif;
   --font-Inter: "Inter", sans-serif;
   --tracking-4: 0.05em;
