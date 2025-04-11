@@ -6,7 +6,7 @@ import { signUp } from '../../services/services/auth';
 import Button from '../Ui/Button';
 
 
-const validateErros = (form) =>{
+export const validateErros = (form) =>{
     let error = {};
     if (!form.nickname || !form.password || !form.repeat_password) {
         error.empty = "Please complete all fields."
@@ -15,8 +15,6 @@ const validateErros = (form) =>{
         error.diferent = "The passwords are different"
     } 
     if(form.password && form.password.length < 8){
-        console.log('la contrase en menor');
-        
         error.password_size = "The password must be at least 8 characters long."
     }
 
@@ -45,20 +43,15 @@ export default function SignUp() {
 
     const sendData = async() =>{
         try {
-            console.log('click');
             const response = await signUp(form)
-            console.log(response);
             if (response.request.status === 201) {
                 setSucces(true)
             }
         } catch (error) {
-            console.log(error);
             setError(error)
         }
     }
 
-    console.log(form);
-    console.log("error ", error);
     if (success) {
         return ( 
             <div className='flex flex-col text-center'>

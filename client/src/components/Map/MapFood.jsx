@@ -17,8 +17,8 @@ export default function MapFood({placesToShow,ClickedPosition,handlerClicked,sel
         style={{width: '100%', height: '100%'}}
         defaultCenter={{lat: 37.757128, lng: -122.442068}}
         defaultZoom={10}
-        minZoom={5}
-        maxZoom={18}
+        minZoom={10}
+        maxZoom={18} 
         gestureHandling={'greedy'}
         disableDefaultUI={true}
         onClick={handlerClicked}

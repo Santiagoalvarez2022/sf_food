@@ -31,19 +31,14 @@ export default function LogIn() {
         setError(validateErros({...form,[name]:value}))
     }
 
-    console.log(form);
-    console.log("error ", error);
     const sendData = async() =>{
         try {
-            console.log('click');
             const response = await logIn(form)
-            console.log(response);
             if (response.request.status === 200) {
                 localStorage.setItem('nickname',response.data.nickname)
                navigate('/map')
             }
         } catch (error) {
-            console.log(error);
             setError(error)
         }
         }

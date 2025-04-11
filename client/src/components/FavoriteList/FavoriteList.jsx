@@ -6,7 +6,6 @@ export default function FavoriteList({handlerPlacesToShow}) {
     const getList = async() =>{
         try {
             const response = await getListFav()
-            console.log(response);
             handlerPlacesToShow(response.data)
         } catch (error) {
             console.log(error);

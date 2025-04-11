@@ -3,6 +3,7 @@ import { pushCartSVG,truckSVG } from "../../../utils/mapIcons"
 import { logOut } from "../../services/services/auth"
 import { useState } from "react"
 import {motion} from 'motion/react'
+import Loader from "../Ui/Loader"
 
 
 export const LogOut = () =>{
@@ -16,6 +17,7 @@ export const LogOut = () =>{
             }
         } catch (error) {
             console.log(error);
+            
         }
     }
 
@@ -29,6 +31,8 @@ export const LogOut = () =>{
 
 
 export const FilterButtons = ({text,toFilter}) =>{
+
+
     return (
         <button onClick={()=>toFilter(text)} className='flex items-center gap-4 bg-sf-grey font-semibold px-4 py-1 shadow shadow-black/50 rounded-xl text-xs md:text-xl lg:text-base cursor-pointer min-w-[130px]'>
 
@@ -56,7 +60,9 @@ export const FilterButtons = ({text,toFilter}) =>{
 }
 
 export const Filter =({handlerPlacesToshow,setMiles,miles}) =>{
+    const [loader,setLoader] = useState(false)
     const buttons = [{text:'Food Truck'},{text:'Push Cart'}]
+
     const addMiles = ( ) =>{
         if(miles >=6) return
         setMiles(miles + 1)
@@ -70,19 +76,25 @@ export const Filter =({handlerPlacesToshow,setMiles,miles}) =>{
 
     //handlersPlacesToshow waits for an array to show in the screen
     const getFilterArray = async(type) =>{
+        setLoader(true)
         //get the complet array fitered 
+        if (type==='Food Truck') {
+            type = 'Truck'
+        }
         try {
             const response = await getData(type)
+            if (response.status === 200) {
+                setLoader(false)
+            }
             handlerPlacesToshow(response.data)
         } catch (error) {
             console.log(error);
         }
     }
-
-
   
     return(
-        <motiondiv className=' flex flex-wrap items-center  justify-end px-4 gap-2 '>
+        <div className=' flex flex-wrap items-center  justify-end px-4 gap-2 lg:flex-col lg:items-start lg:px-0 '>
+           {loader && <Loader />}
             { 
                 buttons.map((btn,index)=><FilterButtons key={index} 
                 text={btn.text}
@@ -99,6 +111,6 @@ export const Filter =({handlerPlacesToshow,setMiles,miles}) =>{
                 </div>
 
             </div>
-        </motiondiv>
+        </div>
     )
 }

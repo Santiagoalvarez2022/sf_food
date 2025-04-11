@@ -11,15 +11,11 @@ export default function InfoPlace({close, seeInfoPlace, infoPlace}) {
     const handlerFav = async() =>{
         try {
             const response = await addFavorite(infoPlace)
-            console.log('response to add fav ', response);
             if(response.status === 201){
-                console.log(response.status);
-                
                 close()
             }
         } catch (error) {
             console.log(error);
-            
         }
     }
 

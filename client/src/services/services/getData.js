@@ -22,8 +22,6 @@ export const getData  = async(type='') =>{
 export const getPlacesNear  = async(currentLocation,miles=1) =>{
   try {
     if (!miles) throw Error('Error  incompleted')
-    console.log('esto es miles en el backend', miles);
-
     const response = await api.post(`/data/search`, {currentLocation,miles})
     return response;
 

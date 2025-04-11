@@ -5,9 +5,10 @@ import FilterSide from '../components/Filters/FilterSide.jsx'
 import Modal from '../components/Modals/Modal.jsx'
 import { getPlacesNear } from '../services/services/getData.js'
 import InfoPlace from '../components/InfoPlace/InfoPlace.jsx'
+import Loader from '../components/Ui/Loader.jsx'
 
 export default function MapContainer() {
-
+  const [loader,setLoader] = useState(false)
   const [seeModal,setSeeModal] = useState(true)
   const [placesToShow, setPlacestoShow] = useState([])
   const [seeInfoPlace,setSeeInfoPlace] = useState(false)
@@ -24,6 +25,7 @@ export default function MapContainer() {
 
   //state for capture the click in the map,
   const handlerClicked = async({detail}) =>{
+    setLoader(true)
     const {latLng} = detail;
     const newLocation = {
       lat : latLng.lat,
@@ -34,7 +36,13 @@ export default function MapContainer() {
     //capture miles
     
     const response = await getPlacesNear(newLocation,miles)
+    if (response.status === 200) {
+      setLoader(false)
+       
+    }
     setPlacestoShow(response.data)
+
+
   }
 
   const selectMarket = (obj) =>{
@@ -58,10 +66,11 @@ export default function MapContainer() {
 
   return (
     <div className='min-h-screen bg-sf-grey flex flex-col relative '>
+      {loader &&  <Loader />}
       <InfoPlace seeInfoPlace={seeInfoPlace} infoPlace={infoPlace} close={handlerCloseInfo}/>
       <Modal close={handlerClose} seeModal={seeModal}/>
       <FilterBar  miles={miles}  setMiles={setMiles} handlerPlacesToShow={handlerPlacesToShow} />
-      <FilterSide miles={miles} setMiles={setMiles} handlerPlacesToShow={handlerPlacesToShow} />
+      <FilterSide miles={miles}  setMiles={setMiles} handlerPlacesToShow={handlerPlacesToShow} />
       <div className='h-screen  '>
         <MapFood selectMarket={selectMarket} placesToShow={placesToShow} ClickedPosition={ClickedPosition} handlerClicked={handlerClicked} />
       </div>
