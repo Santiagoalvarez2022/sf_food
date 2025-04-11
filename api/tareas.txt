@@ -5,3 +5,12 @@
 
 
 https://data.sfgov.org/Economy-and-Community/Mobile-Food-Facility-Permit/rqzj-sfat/about_data
+
+
+- datos totales : 499
+- lugares aprobados : 176
+- trucks : 168 
+
+
+- funcion donde puedas poner todas los lugares en el mapa dependiendo el tipo! *
+- 

@@ -1,8 +1,8 @@
 import User from "../../models/User.js"
 
 
-//create user 
-export const CreateUser = async(req, res) =>{
+//create user  
+export const createUser = async(req, res) =>{
     console.log("llego", req.body);
     
     try {

@@ -1,5 +1,5 @@
-import { CreateUser } from "./createUser.js";
+import { createUser } from "./createUser.js";
 
 export {
-    CreateUser
+    createUser
 }
