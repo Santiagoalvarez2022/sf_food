@@ -25,16 +25,14 @@ const calculateDistance = (position, place) =>{
     const c = 2 * Math.atan2(Math.sqrt(haversine_fromula), Math.sqrt(1 - haversine_fromula));
 
     //you multiply the angle (c) by the radius of the Earth
-    console.log( R * c);
     
     return R * c;
 }
 
 const getDistance = (array, position,miles) =>{
 //You calculate the distance between the chosen point and each place to keep only those that are within the circular radius
-    console.log('recibo la data', array);
+    console.log('miles recibido en el back ', miles);
     
-
     return array.filter((place)=>{
         let distance = calculateDistance(position,place)
         if (distance <= miles) {

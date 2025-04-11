@@ -1,3 +1,15 @@
 .circle{
-    filter :drop-shadow(.4em .3em .2em rgba(0, 0, 0, 0.212))
+    filter :drop-shadow(.4em .3em .2em rgba(0, 0, 0, 0.212));
+   
 }
+
+.photo{
+    background-image: url('../../assets/puente.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%; 
+    height: 70%; 
+    width:  70%;
+    filter :drop-shadow(.4em .3em .2em rgba(0, 0, 0, 0.445));
+
+} 

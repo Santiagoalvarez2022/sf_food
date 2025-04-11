@@ -12,6 +12,7 @@ export default function MapContainer() {
   const [placesToShow, setPlacestoShow] = useState([])
   const [seeInfoPlace,setSeeInfoPlace] = useState(false)
   const [infoPlace,setInfoPlace] = useState(null)
+  const [miles, setMiles] = useState(1)
 
   // default value is san francisco center
    const [ClickedPosition, setClickedPosition] = useState(
@@ -30,13 +31,13 @@ export default function MapContainer() {
     }
     setSeeInfoPlace(false)
     setClickedPosition(newLocation) 
-    const response = await getPlacesNear(newLocation,1)
-    console.log(response);
+    //capture miles
+    
+    const response = await getPlacesNear(newLocation,miles)
     setPlacestoShow(response.data)
   }
 
   const selectMarket = (obj) =>{
-    console.log('clickear obj', obj);
     setSeeInfoPlace(true)
     setInfoPlace(obj)
   }
@@ -59,8 +60,8 @@ export default function MapContainer() {
     <div className='min-h-screen bg-sf-grey flex flex-col relative '>
       <InfoPlace seeInfoPlace={seeInfoPlace} infoPlace={infoPlace} close={handlerCloseInfo}/>
       <Modal close={handlerClose} seeModal={seeModal}/>
-      <FilterBar   handlerPlacesToShow={handlerPlacesToShow} />
-      <FilterSide  handlerPlacesToShow={handlerPlacesToShow} />
+      <FilterBar  miles={miles}  setMiles={setMiles} handlerPlacesToShow={handlerPlacesToShow} />
+      <FilterSide miles={miles} setMiles={setMiles} handlerPlacesToShow={handlerPlacesToShow} />
       <div className='h-screen  '>
         <MapFood selectMarket={selectMarket} placesToShow={placesToShow} ClickedPosition={ClickedPosition} handlerClicked={handlerClicked} />
       </div>

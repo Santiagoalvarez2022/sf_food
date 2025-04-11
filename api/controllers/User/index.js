@@ -1,6 +1,7 @@
 import { createUser } from "./createUser.js";
-import { loginUser } from "./loginUser.js";
+import { loginUser,logOut } from "./loginUser.js";
 export {
     createUser,
-    loginUser
+    loginUser,
+    logOut
 }

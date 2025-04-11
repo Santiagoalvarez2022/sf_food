@@ -1,27 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Logo from '../components/Logo/Logo'
 import CircleFood from '../components/CircleFood/CircleFood'
 import Button from '../components/Ui/Button'
 import LocationFavorite from '../components/LocationFavorite/LocationFavorite'
 import { Link } from 'react-router-dom'
+import useIsLogin from '../hooks/userNickname'
+import { motion } from "motion/react"
 
 export default function Home() {
+    const nickname = useIsLogin()
+
   return (
     <div className='min-h-screen flex flex-col px-8 md:px-15 lg:px-40'>
         <div className='flex items-center justify-end mt-8'>
-            <Link to='/auth?form=login' className='text-sf-brown font-medium font-sf-logo text-3xl tracking-4 cursor-pointer '>Log In</Link>
-        </div> 
+            { !nickname 
+            ?  <Link to='/auth?form=login' className='text-sf-brown font-medium font-sf-logo text-3xl tracking-4 cursor-pointer '>Log In</Link> 
+            : <p className='text-sf-brown font-medium font-sf-logo text-3xl tracking-4  '>{nickname}</p>
+            }
+ 
+        </div>  
 
-        <div className='flex justify-center items-center mt-10 md:hidden'>
+        <motion.div 
+        initial={{ scale: 0 }} animate={{ scale: .9 , transition: { duration: .7 }}}
+        className='flex justify-center items-center mt-10 md:hidden'>
             <Logo x='50%' y='50%'  textAnchor='middle' dominantBaseline='middle' size='text-[6em]' />
-        </div>
+        </motion.div>
 
         <section className='mb-14 '>
             <h3 className='md:hidden text-black font-extrabold font-Inter text-2xl w-[90%] mt-12 mb-6   '>Discover <span className='text-sf-red'>the best eats</span> in San Francisco.</h3>
 
             <div className='grid grid-cols-2 font-Inter '>
                 <div className='flex flex-col items-start '>
-                    <div className='hidden md:block'> 
+                    <div 
+                  
+                    className='hidden md:block'> 
                         <Logo x='1%' y='70%'  textAnchor='start' dominantBaseline='middle' size=' md:text-[8em] lg:text-[10em] '/>
                     </div>
                     <h3 className='   hidden md:block text-black font-extrabold font-Inter text-2xl lg:text-3xl md:my-4 lg:w-[70%] '>Discover <span className='text-sf-red'>the best eats</span> in San Francisco.</h3>

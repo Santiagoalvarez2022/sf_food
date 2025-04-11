@@ -27,7 +27,6 @@ export const loginUser = async(req,res) =>{
         )
         res.cookie('token', token, {
             httpOnly: true,
-            // secure: process.env.NODE_ENV === 'production',//se activa solo si es === true y es para intercambiar por https
             secure: true,
             sameSite: 'None', 
             maxAge: 8 * 60 * 60 * 1000
@@ -42,5 +41,21 @@ export const loginUser = async(req,res) =>{
         } else {
             res.status(400).json({ error: error.message || 'Something went wrong' });
         }
+    }
+}
+
+
+export const logOut = async(req,res) =>{
+    try {
+        res.cookie('token', '', {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'None', 
+            expires :  new Date(0) 
+          });
+        res.status(200).json({message:'Logout succefully'});
+
+    } catch (error) {
+        res.status(400).json({ error: error.message });
     }
 }

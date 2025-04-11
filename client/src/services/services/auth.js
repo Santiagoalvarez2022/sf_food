@@ -19,3 +19,19 @@ export const logIn = async(form) =>{
         throw error.response?.data || { error: "Error in Log In" }
     }
 }
+
+export const logOut = async(place) =>{
+    try {
+      const response = await api.post('/user/logout',{},{
+        withCredentials: true 
+      })
+    console.log('response log out', response);
+  
+  
+      return response;
+    } catch (error) {
+      console.log(error);
+      
+      throw error.response?.data || { error: "Error in get favorites places" }
+    }
+  }

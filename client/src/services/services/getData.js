@@ -19,9 +19,11 @@ export const getData  = async(type='') =>{
 
 
 
-export const getPlacesNear  = async(currentLocation,miles) =>{
+export const getPlacesNear  = async(currentLocation,miles=1) =>{
   try {
     if (!miles) throw Error('Error  incompleted')
+    console.log('esto es miles en el backend', miles);
+
     const response = await api.post(`/data/search`, {currentLocation,miles})
     return response;
 
@@ -48,7 +50,7 @@ export const getListFav = async() =>{
 export const addFavorite = async(place) =>{
   try {
     if(!place) throw Error('Place is undefined')
-    const response = await api.post('favorites',place,{
+    const response = await api.post('/favorites',place,{
       withCredentials: true 
     })
     return response;
@@ -58,3 +60,4 @@ export const addFavorite = async(place) =>{
     throw error.response?.data || { error: "Error in get favorites places" }
   }
 }
+

@@ -1,6 +1,6 @@
-- renderizar mapa en la pagina 
+- renderizar mapa en la pagina *
 - mostrar de inicio todos los puntos en el map
-- luego poder filtrar por los dos tipos 
+- luego poder filtrar por los dos tipos *
 - setear la posibiliarad de que arrancque en san francisco, despues que cuando toque una zona caputure un margen mayor y haga la peticiones en base a ello
 -ocultar api de google 
 
@@ -18,8 +18,10 @@ CONSENTRARME EN QUE FUNCIONE DESPUES MEJOR CON IMPLEMENTACIONES
 - filtrar el array traido para mostrar la info necesaria *
 - MANEJO DE ERORRES
 - rango numerico en filtros para marcar el rango 
+- poner loadres para la peticion al backend
 
-
-
-
+- cerrrar secion y borrar toquen * 
+- manejo de errores 
+- guradar millas en local storage3 *
+- validar si no estas logeado te envio a logearte para guar la lsita de fav 
 -eliminar puntos que no son de interes como museos etc

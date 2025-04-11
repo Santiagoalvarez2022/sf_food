@@ -1,13 +1,36 @@
 import { getData } from "../../services/services/getData"
 import { pushCartSVG,truckSVG } from "../../../utils/mapIcons"
+import { logOut } from "../../services/services/auth"
+import { useState } from "react"
+import {motion} from 'motion/react'
+
+
+export const LogOut = () =>{
+
+    const cleanToken = async() =>{
+        try {
+            const response = await logOut()
+            if (response.status === 200) {
+                localStorage.removeItem('nickname')
+                window.location.reload(); 
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    return(
+        <div onClick={()=>cleanToken()} className=" flex items-center justify-center cursor-pointer">
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-log-out-icon lucide-log-out h-6 w-6 "><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+        </div>
+    )
+}
 
 
 export const FilterButtons = ({text,toFilter}) =>{
-
-
-
     return (
-        <button onClick={()=>toFilter(text)} className='flex items-center gap-4 bg-sf-grey font-semibold px-4 py-1 shadow shadow-black/50 rounded-xl text-xs md:text-xl lg:text-base cursor-pointer'>
+        <button onClick={()=>toFilter(text)} className='flex items-center gap-4 bg-sf-grey font-semibold px-4 py-1 shadow shadow-black/50 rounded-xl text-xs md:text-xl lg:text-base cursor-pointer min-w-[130px]'>
 
             {text === 'Food Truck' &&   <svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 24 24' fill='none' stroke='black' strokeWidth='1.1' strokeLinecap='round' strokeLinejoin='round'>
                 <circle cx='12' cy='12' r='11' fill='white'/>
@@ -32,8 +55,18 @@ export const FilterButtons = ({text,toFilter}) =>{
     )
 }
 
-export const Filter =({handlerPlacesToshow}) =>{
+export const Filter =({handlerPlacesToshow,setMiles,miles}) =>{
     const buttons = [{text:'Food Truck'},{text:'Push Cart'}]
+    const addMiles = ( ) =>{
+        if(miles >=6) return
+        setMiles(miles + 1)
+    }
+
+    const decreaseMiles = () =>{
+        if (miles <= 1) return
+        setMiles(miles - 1)
+    }
+
 
     //handlersPlacesToshow waits for an array to show in the screen
     const getFilterArray = async(type) =>{
@@ -47,14 +80,25 @@ export const Filter =({handlerPlacesToshow}) =>{
     }
 
 
+  
     return(
-        <div className=' flex  justify-end px-4 gap-2 '>
-            {
+        <motiondiv className=' flex flex-wrap items-center  justify-end px-4 gap-2 '>
+            { 
                 buttons.map((btn,index)=><FilterButtons key={index} 
                 text={btn.text}
                 toFilter={getFilterArray}
                 />)
             }
-        </div>
+            <div className=""
+            >
+                <div className="flex bg-sf-grey gap-2 rounded-md">
+                    <button onClick={()=>decreaseMiles()} className=" cursor-pointer  rounded-md bg-sf-brown px-2 text-sf-grey text-">-</button>
+                    <p className="py-1">Miles</p>
+                    <p className="py-1 w-2">{miles}</p>
+                    <button onClick={()=>addMiles()} className=" cursor-pointer  rounded-md bg-sf-brown px-2 text-sf-grey text-">+</button>
+                </div>
+
+            </div>
+        </motiondiv>
     )
 }

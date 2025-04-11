@@ -4,8 +4,6 @@ const normalicedata = (array) =>{
 
     return array.map(({latitude,longitude,fooditems,...rest})=>{
         if (fooditems) {
-            console.log('fooditems  ', fooditems);
-            
             fooditems = fooditems.split(':').map(e=>e.trim())
         }
         return {
