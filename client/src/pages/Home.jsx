@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo from '../components/Logo/Logo'
 import CircleFood from '../components/CircleFood/CircleFood'
-import Button from '../components/Button/Button'
+import Button from '../components/Ui/Button'
 import LocationFavorite from '../components/LocationFavorite/LocationFavorite'
 import { Link } from 'react-router-dom'
 
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className='min-h-screen flex flex-col px-8 md:px-15 lg:px-40'>
         <div className='flex items-center justify-end mt-8'>
-            <Link  className='text-sf-brown font-medium font-sf-logo text-3xl tracking-4 cursor-pointer '>Log In</Link>
+            <Link to='/auth?form=login' className='text-sf-brown font-medium font-sf-logo text-3xl tracking-4 cursor-pointer '>Log In</Link>
         </div> 
 
         <div className='flex justify-center items-center mt-10 md:hidden'>
@@ -28,7 +28,7 @@ export default function Home() {
 
                     <p className='lg:text-xl  lg:w-[70%]'>From Mission burritos to Fisherman's Wharf chowder, prepared by authentic locals.</p>
                     <br />
-                    <Button text={'see map'} arrow={true}/>
+                    <Button route={'/map'} text={'see map'} arrow={true}/>
                 </div>
                 <div className='flex justify-center items-center'>
                     <CircleFood />
@@ -40,7 +40,7 @@ export default function Home() {
         <section className='md:grid md:grid-cols-2'>
 
             <div className='hidden md:flex items-center w-[90%] lg:w-[70%]'>
-                <LocationFavorite ourClass={''}/>  
+            <LocationFavorite address={'Philz Coffee Truck'} facilitytype='Truck' />
             </div>
 
             <div className='flex flex-col font-Inter items-center md:items-start gap-6'>
@@ -49,13 +49,13 @@ export default function Home() {
                 <p>From MissioSign in to save and share your go-to locations in SF with othersn burritos to Fisherman's Wharf chowder, prepared by authentic locals.</p>
 
                 <div className='w-full md:hidden mt-6'>
-                    <LocationFavorite />
+                    <LocationFavorite address={'Philz Coffee Truck'} facilitytype='Truck' />
                 </div>
 
                 <div className=' flex w-full items-center justify-center gap-6 mt-6 mb-15 '>
-                    <button className='bg-sf-brown px-8 py-2  flex items-center justify-center text-white rounded-3xl text-xl font-bold '>Sing up</button>
+                    <Link to={'/auth?form=signup'} className='bg-sf-brown px-8 py-2  flex items-center justify-center text-white rounded-3xl text-xl font-bold '>Sign up</Link>
 
-                    <p className='text-sf-brown font-bold text-xl'>Log In</p>
+                    <Link to={'/auth?form=login'} className='text-sf-brown font-bold text-xl'>Log In</Link>
                 </div> 
             </div>
 

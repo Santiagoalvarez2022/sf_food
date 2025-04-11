@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Button({text,action, arrow, route}) {
+export default function Button({text,arrow, route}) {
   return (
-    <Link to={'/map'} className='bg-sf-brown px-4 py-1  flex items-center justify-center text-white rounded-3xl '>
-        <span className='text-md lg:text-xl flex items-center font-Inter font-bold '>{text}</span>
-
+    <Link to={route} className='bg-sf-brown px-4 py-1  flex items-center justify-center text-white rounded-3xl shadow-md shadow-black/30'>
+        <span className='text-md md:text-xl flex items-center font-Inter font-bold w-fit '>{text}</span>
         {arrow &&    <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

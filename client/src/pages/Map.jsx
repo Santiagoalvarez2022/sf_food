@@ -12,6 +12,7 @@ export default function MapContainer() {
   const [placesToShow, setPlacestoShow] = useState([])
   const [seeInfoPlace,setSeeInfoPlace] = useState(false)
   const [infoPlace,setInfoPlace] = useState(null)
+
   // default value is san francisco center
    const [ClickedPosition, setClickedPosition] = useState(
     {
@@ -19,7 +20,6 @@ export default function MapContainer() {
       lng: -122.442068
     }
   );
-
 
   //state for capture the click in the map,
   const handlerClicked = async({detail}) =>{
@@ -34,7 +34,6 @@ export default function MapContainer() {
     console.log(response);
     setPlacestoShow(response.data)
   }
-console.log('info place  map', infoPlace);
 
   const selectMarket = (obj) =>{
     console.log('clickear obj', obj);
@@ -60,8 +59,8 @@ console.log('info place  map', infoPlace);
     <div className='min-h-screen bg-sf-grey flex flex-col relative '>
       <InfoPlace seeInfoPlace={seeInfoPlace} infoPlace={infoPlace} close={handlerCloseInfo}/>
       <Modal close={handlerClose} seeModal={seeModal}/>
-      <FilterBar  handlerPlacesToShow={handlerPlacesToShow} />
-      <FilterSide handlerPlacesToShow={handlerPlacesToShow} />
+      <FilterBar   handlerPlacesToShow={handlerPlacesToShow} />
+      <FilterSide  handlerPlacesToShow={handlerPlacesToShow} />
       <div className='h-screen  '>
         <MapFood selectMarket={selectMarket} placesToShow={placesToShow} ClickedPosition={ClickedPosition} handlerClicked={handlerClicked} />
       </div>

@@ -43,7 +43,6 @@ export const Filter =({handlerPlacesToshow}) =>{
             handlerPlacesToshow(response.data)
         } catch (error) {
             console.log(error);
-            
         }
     }
 

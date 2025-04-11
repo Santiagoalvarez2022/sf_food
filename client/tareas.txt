@@ -14,10 +14,10 @@ CONSENTRARME EN QUE FUNCIONE DESPUES MEJOR CON IMPLEMENTACIONES
 - limites de san francisco? a mano o desde la api *
 - poner todos los restaurantes de la api en en mapa *
 - diseño responsivo correcto *
-- al tocar una ubicacion muestro info place 
-- rango numerico en filtros para marcar el rango
-- filtrar el array traido para mostrar la info necesaria
-
+- al tocar una ubicacion muestro info place *
+- filtrar el array traido para mostrar la info necesaria *
+- MANEJO DE ERORRES
+- rango numerico en filtros para marcar el rango 
 
 
 

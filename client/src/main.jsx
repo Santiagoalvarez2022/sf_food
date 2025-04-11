@@ -5,6 +5,8 @@ import './index.css'
 import App from './App.jsx'
 import Home from './pages/Home.jsx';
 import MapContainer from './pages/Map.jsx';
+import Auth from './pages/Auth.jsx';
+import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 const router = createBrowserRouter([
   {
     path:'/',
@@ -16,6 +18,18 @@ const router = createBrowserRouter([
     path:'/map',
     element:(
       <MapContainer />
+    )
+  },
+  {
+    path:'/auth',
+    element:(
+      <Auth />
+    )
+  },
+  {
+    path:'/error',
+    element:(
+      <ErrorPage />
     )
   },
 ])

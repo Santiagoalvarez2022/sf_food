@@ -1,0 +1,5 @@
+.input::placeholder{
+    color : rgba(65, 64, 64, 0.658);
+    padding-left: 1em; 
+    font-weight: 500;
+}

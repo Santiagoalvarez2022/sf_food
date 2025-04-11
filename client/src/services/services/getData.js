@@ -3,11 +3,8 @@ import api from "../apiInstance";
 //objetngo todos los lugares de comida 
 
 export const getData  = async(type='') =>{
-    console.log('detalladata, type ', type );
   try {
     if (type) {
-      console.log('entre aca type');
-      
       const response = await api.get(`/data?type=${type}`)
       return response
     } else {
@@ -30,5 +27,34 @@ export const getPlacesNear  = async(currentLocation,miles) =>{
 
   } catch (error) {
     throw error.response?.data || { error: "Error in search places" }
+  }
+}
+
+export const getListFav = async() =>{
+  try {
+    const response = await api.get(`/favorites`, {
+      withCredentials: true 
+    });
+
+    return response;
+
+  } catch (error) {
+    console.log(error);
+    
+    throw error.response?.data || { error: "Error in get favorites places" }
+  }
+}
+
+export const addFavorite = async(place) =>{
+  try {
+    if(!place) throw Error('Place is undefined')
+    const response = await api.post('favorites',place,{
+      withCredentials: true 
+    })
+    return response;
+  } catch (error) {
+    console.log(error);
+    
+    throw error.response?.data || { error: "Error in get favorites places" }
   }
 }
