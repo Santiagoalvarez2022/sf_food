@@ -4,11 +4,16 @@ import favoritesRouter from './favorites.js';
 import DataSfRouter from '../services/DataSfRouter.js';
 import verifyToken from '../middleware/verifyToken.js';
 
-//main router to distribute requests to the appropriate routes;
-const mainRouter = Router()
-mainRouter.use('/user', usersRouter)
-mainRouter.use('/data',DataSfRouter)
-mainRouter.use('/favorites',verifyToken,favoritesRouter)
+// Main router: delegates incoming requests to specific route modules based on the path
+const mainRouter = Router();
+
+// Handles user authentication and account routes
+mainRouter.use('/user', usersRouter);     
+// Handles requests to external SF Data API
+mainRouter.use('/data', DataSfRouter);    
+// Manages user favorites (protected by token middleware)         
+mainRouter.use('/favorites', verifyToken, favoritesRouter); 
+
 
 
 export default mainRouter;

@@ -31,8 +31,6 @@ const calculateDistance = (position, place) =>{
 
 const getDistance = (array, position,miles) =>{
 //You calculate the distance between the chosen point and each place to keep only those that are within the circular radius
-    console.log('miles recibido en el back ', miles);
-    
     return array.filter((place)=>{
         let distance = calculateDistance(position,place)
         if (distance <= miles) {

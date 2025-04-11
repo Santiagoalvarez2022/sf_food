@@ -19,7 +19,6 @@ export default function InfoPlace({close, seeInfoPlace, infoPlace}) {
         }
     }
 
-console.log('info pklace en inflo placeee componente',infoPlace);
   return (
     <div className='z-50  overflow-auto scroll bottom-0 fixed bg-white flex  justify-center flex-col rounded-t-[2em] md:rounded-b-[1em]  w-[100%] md:w-[40%] lg:w-[25%]  md:bottom-100 md:right-5 lg:bottom-10 font-Inter  shadow-[#8F8F8F]/50 shadow-lg  ' >
         <div className=' w-[100%]'>

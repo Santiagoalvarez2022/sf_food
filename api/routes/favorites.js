@@ -5,10 +5,13 @@ import { getFavorites } from "../controllers/FavoritePlaces/getFavorites.js";
 
 const favoritesPlaces = Router();
 
-//add new favorite places 
-favoritesPlaces.post('/',addFavoritePlaces)
 
-//get all my favorite places
-favoritesPlaces.get('/',getFavorites)
+// POST /favorites
+// Adds a new favorite place for the authenticated user
+favoritesPlaces.post('/', addFavoritePlaces);
+
+// GET /favorites 
+// get all favorite places for the authenticated user
+favoritesPlaces.get('/', getFavorites);
 
 export default favoritesPlaces;

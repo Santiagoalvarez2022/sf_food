@@ -7,7 +7,6 @@ import api from '../apiInsatance.js';
 export const getData =  async(req,res) =>{
     try {
         const {type} = req.query; 
-        //the are two types 'Truck' and 'Push Cart'
         let response = []      
         if (type) {
             let response = await api.get(``,

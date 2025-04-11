@@ -10,7 +10,6 @@ export default function Auth() {
     const [searchParams] = useSearchParams();
     const form = searchParams.get('form'); // "123"
 
-    console.log(form); 
     if (!form) {
         return 
     }
