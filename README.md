@@ -128,6 +128,31 @@ VITE_NODE_ENV=development
 
 ```
 
+## HTTPS Setup for Backend and Frontend (Required for HTTP-only Cookies)
+
+To properly handle HTTP-only cookies (such as authentication tokens) between the client and the server, both the backend and frontend must run over HTTPS during development.
+
+For that reason, we generate a pair of SSL certificates:
+
+cert.pem — the public certificate
+
+key.pem — the private key
+
+These certificates are required to enable HTTPS locally and allow secure cookie transmission.
+
+### 📁 Expected Paths
+
+```
+api/certs/cert.pem
+api/certs/key.pem
+
+These files should be placed under the api/certs/ directory.
+```
+
+
+
+
+
 ### 📌 POST `/user/create`
 
 #### 🧾 Request Body:
