@@ -5,7 +5,7 @@ const {PG_USER,PG_PASSWORD,PG_HOST,PG_PORT,PG_DATABASE} = process.env;
 export const sequelizeInstance = new Sequelize(`postgres://${PG_USER}:${PG_PASSWORD}@${PG_HOST}:${PG_PORT}/${PG_DATABASE}`, {
     logging:false //It doesn't show the logs in the bash
 })
-
+ 
 
 export const connectionToDataBase = async() =>{
     console.log('se ejecuto');

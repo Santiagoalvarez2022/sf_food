@@ -8,11 +8,15 @@ const FavoritePlaces = sequelizeInstance.define('FavoritePlaces',{
         primaryKey: true,
         allowNull: false,
     },
-    location: {
-        type : DataTypes.JSON,
-        allowNull : false,
+    lat : {
+        type : DataTypes.FLOAT,
+        allowNull : false
     },
-    ObjectId : {
+    lng :{
+        type : DataTypes.FLOAT,
+        allowNull : false
+    },
+    objectid : {
         type : DataTypes.STRING,
         allowNull : false
     },
@@ -20,10 +24,15 @@ const FavoritePlaces = sequelizeInstance.define('FavoritePlaces',{
         type : DataTypes.STRING,
         allowNull : false
     },
+    fooditems: {
+        type: DataTypes.ARRAY(DataTypes.STRING), // Array of strings
+        allowNull: false
+    },
     facilitytype:{
         type : DataTypes.STRING,
         allowNull : false
-    }
+    },
+
 })
 
 export default FavoritePlaces;
