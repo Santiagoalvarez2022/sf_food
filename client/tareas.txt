@@ -23,5 +23,7 @@ CONSENTRARME EN QUE FUNCIONE DESPUES MEJOR CON IMPLEMENTACIONES
 - cerrrar secion y borrar toquen * 
 - manejo de errores 
 - guradar millas en local storage3 *
+- cambiar el logo de la pestaña
+
 - validar si no estas logeado te envio a logearte para guar la lsita de fav 
 -eliminar puntos que no son de interes como museos etc

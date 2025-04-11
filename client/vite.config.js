@@ -3,8 +3,7 @@ import react from '@vitejs/plugin-react-swc'
 import tailwindcss from '@tailwindcss/vite'
 import fs from "fs";
 
-const isDev = process.env.NODE_ENV === 'development' || import.meta.env.MODE === 'development'
-console.log(isDev);
+const isDev = process.env.NODE_ENV === 'development' 
 
 export default defineConfig({
   plugins: [
