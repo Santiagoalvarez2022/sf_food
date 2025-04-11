@@ -2,13 +2,17 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import tailwindcss from '@tailwindcss/vite'
 import fs from "fs";
-// https://vite.dev/config/
+
+const isDev = process.env.NODE_ENV === 'development' || import.meta.env.MODE === 'development'
+console.log(isDev);
+
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss()
   ],
-  server: {
+  server: isDev 
+   ? {
     port: 3000,
     strictPort: true,
     host: true,
@@ -17,4 +21,9 @@ export default defineConfig({
      cert: fs.readFileSync("C:/Users/santi/OneDrive/Escritorio/Personal/sf_food/api/certs/cert.pem"),
    },
   }
+  : {
+    port: 3000,
+    host: true,
+    strictPort: true,
+  },
 })
