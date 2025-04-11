@@ -7,7 +7,7 @@ const app = express()
 // Middleware settings for CORS (Cross-Origin Resource Sharing)
 // This allows requests from an unique origin
 const corsOptions = {
-    origin : 'https://localhost:3000',
+    origin : process.env.URL_FRONTEND,
     optionsSuccessStatus: 200,
     credentials: true,   
 }
